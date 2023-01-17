@@ -45,11 +45,11 @@ int main(int argc, char* argv[])
 
 
 
-    UlListStr y; // various edge cases
+    ULListStr y; // various edge cases
     // test 1 --> back and front same if only one number
     y.push_back("3");
 
-    std::cout << "size! " << y.size() << std::endl // 1
+    std::cout << "size! " << y.size() << std::endl; // 1
     std::cout << "front! " << y.front() << std::endl; // 3
     std::cout << "back! " << y.back() << std::endl; // 3
 
