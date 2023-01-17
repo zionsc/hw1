@@ -116,7 +116,7 @@ void ULListStr::pop_front()
 
   else if (head_->first == 9 && head_->last == 10) { // if only one val --> change head pointer itself
     size_--;
-    head = head_->next;
+    head_ = head_->next;
   }
 
   else { // does not create empty list when popped front
@@ -127,8 +127,9 @@ void ULListStr::pop_front()
 
 std::string const & ULListStr::back() const
 {
-  size_t temp = --temp->last;
-  return tail_->val[temp];
+  Item* temp = tail_;
+  --temp->last;
+  return temp->val[temp->last];
 }
 
 std::string const & ULListStr::front() const
