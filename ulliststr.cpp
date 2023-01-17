@@ -42,7 +42,7 @@ void ULListStr::push_back(const std::string& val)
   
   else if (tail_->last == 10) { // set 10 max
     Item* temp = new Item;
-    temp->val[temp_->last] = val;
+    temp->val[temp->last] = val;
     temp->last++;
     temp->prev = tail_;
     tail_->next = temp;
