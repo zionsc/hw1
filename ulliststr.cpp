@@ -58,7 +58,7 @@ void ULListStr::push_back(const std::string& val)
   }
 }
 
-void ULListStr:push_front(const std::string& val) 
+void ULListStr::push_front(const std::string& val) 
 {
   if (size_==0) {
     Item* temp = new Item;
@@ -72,7 +72,7 @@ void ULListStr:push_front(const std::string& val)
     size_++;
   }
 
-  else if (head->first==0) {
+  else if (head_->first==0) {
     Item* temp = new Item;
     temp->first = 10;
     temp->last = 10;
@@ -114,7 +114,7 @@ void ULListStr::pop_front()
     return;
   }
 
-  else if (head->first == 9 && head_->last == 10) { // if only one val --> change head pointer itself
+  else if (head_->first == 9 && head_->last == 10) { // if only one val --> change head pointer itself
     size_--;
     head = head_->next;
   }
@@ -127,11 +127,11 @@ void ULListStr::pop_front()
 
 std::string const & ULListStr::back() const
 {
-  size_t temp = --temp_->last;
+  size_t temp = --temp->last;
   return tail_->val[temp];
 }
 
-void ULListStr::front()
+std::string const & ULListStr::front() const
 {
   return head_->val[head_->first];
 }

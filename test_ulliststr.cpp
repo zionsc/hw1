@@ -29,13 +29,13 @@ int main(int argc, char* argv[])
     x.pop_front(); // 4 5
 
     // test 5 --> back
-    cout << "back! " << x.back() << endl; // 5
+    std::cout << "back! " << x.back() << std::endl; // 5
 
     // test 6 --> front
-    cout << "front! " << x.front() << endl; // 4
+    std::cout << "front! " << x.front() << std::endl; // 4
 
     // test 7 --> getValatLoc
-    cout << "get value at index 0 " << *(x.getValAtLoc("0")) << endl; // 4
+    std::cout << "get value at index 0 " << *(x.getValAtLoc("0")) << std::endl; // 4
 
 
 
@@ -43,8 +43,8 @@ int main(int argc, char* argv[])
     // test 1 --> back and front same if only one number
     y.push_back("3");
 
-    cout << "front! " << y.front(); << endl; // 3
-    cout << "back! " << y.back(); << endl; // 3
+    std::cout << "front! " << y.front() << std::endl; // 3
+    std::cout << "back! " << y.back() << std::endl; // 3
 
     
 
