@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     x.push_front("9"); // 9 1 4 5 0 3
 
     // size test 
-    std::cout << x.size() << std::endl; // 6
+    std::cout << x.size() << std::endl; // 5
 
     // test 3 --> pop_back
     x.pop_back();
@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
     x.pop_front(); // 4 5
 
     // size test
-    std::cout << "size! " << x.size() << std::endl; // 2
+    std::cout << "size! " << x.size() << std::endl; // 1
 
     // test 5 --> back
     std::cout << "back! " << x.back() << std::endl; // 5
