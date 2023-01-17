@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
     std::cout << "front! " << x.front() << std::endl; // 4
 
     // test 7 --> getValatLoc
-    std::cout << "get value at index 0 " << *(x.getValAtLoc("0")) << std::endl; // 4
+    //std::cout << "get value at index 0 " << *(x.getValAtLoc("0")) << std::endl; // 4
 
 
 
