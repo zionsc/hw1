@@ -20,6 +20,9 @@ int main(int argc, char* argv[])
     x.push_front("1");
     x.push_front("9"); // 9 1 4 5 0 3
 
+    // size test 
+    std::cout << x.size() << std::endl; // 6
+
     // test 3 --> pop_back
     x.pop_back();
     x.pop_back(); // 9 1 4 5
@@ -27,6 +30,9 @@ int main(int argc, char* argv[])
     // test 4 --> pop_front
     x.pop_front();
     x.pop_front(); // 4 5
+
+    // size test
+    std::cout << "size! " << x.size() << std::endl; // 2
 
     // test 5 --> back
     std::cout << "back! " << x.back() << std::endl; // 5
@@ -43,6 +49,7 @@ int main(int argc, char* argv[])
     // test 1 --> back and front same if only one number
     y.push_back("3");
 
+    std::cout << "size! " << y.size() << std::endl // 1
     std::cout << "front! " << y.front() << std::endl; // 3
     std::cout << "back! " << y.back() << std::endl; // 3
 
