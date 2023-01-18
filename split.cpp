@@ -29,16 +29,16 @@ void split(Node*& in, Node*& odds, Node*& evens)
     }
   }
   
-  else if (in->val % 2 == 0) {
+  else if (in->value % 2 == 0) {
     evens = in;
     split(in->next, odds, evens->next);
   }
 
-  else if (in->val < 0) { // negative numbers
+  else if (in->value < 0) { // negative numbers
     split(in->next, odds, evens);
   }
 
-  else if (in->val % 2 != 0) {
+  else if (in->value % 2 != 0) {
     odds = in;
     split(in->next, odds->next, evens);
   }
