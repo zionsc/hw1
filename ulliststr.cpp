@@ -63,7 +63,7 @@ void ULListStr::push_front(const std::string& val)
   if (size_==0) {
     Item* temp = new Item;
     head_ = temp;
-    tail_ = temp;
+    tail_ = temp;`
     temp = head_; // question about this --> necessary or no
     temp->first = 10;
     temp->last = 10;
