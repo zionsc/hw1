@@ -19,9 +19,9 @@ bool ULListStr::empty() const
   return size_ == 0;
 }
 
-size_t ULListStr::size() const
+size_t ULListStr::size()
 {
-  return size_; // starts at 0
+  return size_++; // starts at 0
 }
 
 // WRITE YOUR CODE HERE
