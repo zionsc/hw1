@@ -43,7 +43,7 @@ class ULListStr {
    * Returns the current number of items in the list (NOT the number of nodes)
    *   - MUST RUN in O(1)
    */
-  size_t size();
+  size_t size() const;
 
   /**
    * Returns true if the list is empty, false otherwise

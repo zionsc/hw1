@@ -19,9 +19,9 @@ bool ULListStr::empty() const
   return size_ == 0;
 }
 
-size_t ULListStr::size()
+size_t ULListStr::size() const
 {
-  return size_++; // starts at 0
+  return size_; // starts at 0
 }
 
 // WRITE YOUR CODE HERE
@@ -82,6 +82,7 @@ void ULListStr::push_front(const std::string& val)
     head_->prev = temp; // now that head is gone, set head's prev to the new temp
     head_ = head_->prev; // set that temp val to new head
     head_->prev = NULL;
+    size_++
   }
 
   else {
