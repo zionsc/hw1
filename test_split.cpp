@@ -10,21 +10,28 @@ g++ split.cpp test_split.cpp -o test_split
 */
 
 #include "split.h"
+#include <iostream>
+#include <cstddef>
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-    Node* odds, evens = NULL;
-    Node* in = new Node(1, new Node(2, new Node(3, new Node(4, NULL)));
+    Node* odds = NULL;
+    Node* evens = NULL;
+    // odds->value = NULL;
+    // evens->value = NULL;
+    // Node* temp;
+    // temp->value = NULL;
+    Node* in = new Node(1, new Node(2, new Node(3, new Node(4, NULL))));
 
-    split(is, odds, evens);
+    split(in, odds, evens);
 
     // printing test to see if the values are correct
 
     cout << "Odd List" << endl;
     Node* curr = odds;
     while (curr) {
-        cout << curr->val << " ";
+        cout << curr->value << " ";
         curr = curr->next;
     }
     cout << endl;
@@ -32,7 +39,7 @@ int main(int argc, char* argv[])
     cout << "Even List" << endl;
     curr = evens;
     while (curr) {
-        cout << curr->val << " ";
+        cout << curr->value << " ";
         curr = curr->next;
     }
     cout << endl;

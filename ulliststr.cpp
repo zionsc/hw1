@@ -82,7 +82,7 @@ void ULListStr::push_front(const std::string& val)
     head_->prev = temp; // now that head is gone, set head's prev to the new temp
     head_ = head_->prev; // set that temp val to new head
     head_->prev = NULL;
-    size_++
+    size_++;
   }
 
   else {
