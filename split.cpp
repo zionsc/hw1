@@ -19,30 +19,29 @@ void split(Node*& in, Node*& odds, Node*& evens)
   /* Add code here */
 // WRITE YOUR CODE HERE
 
-  if (!in) { // check if original list does not exist --> return
+  if (!in) { // check if original list does not exist/nullptr --> return
     return;
   }
-  
-  if (in->val % 2 != 0) {
-    if (odds) {
-      odds->next = split(in->next, odds->next, evens);
-    }
-    else { // if !odds
-      odds = in;
+
+  if (!in->next) {
+    if (!evens || !odds) {
+      return;
     }
   }
-  else { // if odd --> % 2 == 0
-    if (evens) {
-      evens->next = split(in->next, odds, evens->next);
-    }
-    else {
-      evens = in;
-    }
+  
+  else if (in->val % 2 == 0) {
+    evens = in;
+    split(in->next, odds, evens->next);
   }
 
-  in->next = NULL;
-  in = NULL;
-  return in;
+  else if (in->val < 0) { // negative numbers
+    split(in->next, odds, evens);
+  }
+
+  else if (in->val % 2 != 0) {
+    odds = in;
+    split(in->next, odds->next, evens);
+  }
 
 }
 
