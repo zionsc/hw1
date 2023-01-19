@@ -1,5 +1,6 @@
 #include <cstddef>
 #include <stdexcept>
+#include <iostream>
 #include "ulliststr.h"
 
 ULListStr::ULListStr()
@@ -11,15 +12,6 @@ ULListStr::ULListStr()
 
 ULListStr::~ULListStr()
 {
-  Item* curr = head_;
-  Item* next = NULL;
-
-  while (curr != NULL) {
-    next = curr->next;
-    delete curr;
-    curr = next;
-  }
-
   clear();
 }
 
@@ -73,8 +65,8 @@ void ULListStr::push_front(const std::string& val)
     Item* temp = new Item;
     head_ = temp;
     tail_ = temp;
-    temp = head_; // question about this --> necessary or no
-    temp->first = 10;
+    temp = head_; 
+    temp->first = 10; // question about this --> necessary or no
     temp->last = 10;
     temp->first--;
     temp->val[temp->first] = val; // after subbing
@@ -83,7 +75,7 @@ void ULListStr::push_front(const std::string& val)
 
   else if (head_->first==0) {
     Item* temp = new Item;
-    temp->first = 10;
+    temp->first = 10; // question about this --> necessary or no
     temp->last = 10;
     temp->first--;
     temp->val[temp->first] = val; // after subbing
@@ -107,9 +99,28 @@ void ULListStr::pop_back()
     return;
   }
 
-  else if (tail_->last == 1 && tail_->first == 0) { // if only one val --> change tail pointer itself
+  else if (tail_->last - tail_->first == 1) { // if only one val --> change tail pointer itself
     size_--;
-    tail_ = tail_->prev;
+    tail_->last--;
+    if (head_ == tail_) {
+      head_ = nullptr;
+      delete tail_;
+      tail_ = nullptr;
+      // tail_->prev = nullptr;
+      // head_->next = nullptr;
+    }
+    else {
+      Item* temp = tail_->prev;
+      delete tail_;
+      tail_ = temp;
+      tail_->next = nullptr;
+    }
+
+    // else if (tail_->last == tail_first) {
+    //   Item* temp = tail_->prev;
+    //   delete tail_;
+    //   tail_ = temp;
+    // }
   }
 
   else { // does not create empty list when popped back
@@ -124,9 +135,26 @@ void ULListStr::pop_front()
     return;
   }
 
-  else if (head_->first == 9 && head_->last == 10) { // if only one val --> change head pointer itself
+  else if (head_->last - head_->first == 1) { // if only one val --> change head pointer itself
     size_--;
-    head_ = head_->next;
+    head_->first++;
+    if (head_ == tail_) {
+      head_ = nullptr;
+      delete tail_;
+      tail_ = nullptr;
+    }
+    else {
+      Item* temp = head_->next;
+      delete head_;
+      head_ = temp;
+      head_->prev = nullptr;
+    }
+
+    // else if (head_->first == head_last) {
+    //   Item* temp = head_->next;
+    //   delete head_;
+    //   head_ = temp;
+    // }
   }
 
   else { // does not create empty list when popped front
@@ -158,20 +186,24 @@ std::string* ULListStr::getValAtLoc(size_t loc) const
 {
   Item* temp = head_;
   int locUse = int(loc);
+  int curr_idx = temp->first;
   while (locUse != 0) {
     int start = (int)(temp->first);
     int end = (int)(temp->last);
     int x = end-start;
     if (locUse >= x) {
       temp = temp->next;
+      curr_idx = temp->first;
       locUse -= x;
     }
     else {
-      temp->first++;
+      // temp->first++;
+      curr_idx++;
       locUse--;
     }
   }
-  return &(temp->val[temp->first]);
+  //std::cout << temp->first << std::endl;
+  return &(temp->val[curr_idx]);
 }
 
 
