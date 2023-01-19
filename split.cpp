@@ -11,6 +11,7 @@ the function below should be the only one in this file.
 */
 
 #include "split.h"
+#include <iostream>
 
 /* Add a prototype for a helper function here if you need */
 
@@ -19,14 +20,8 @@ void split(Node*& in, Node*& odds, Node*& evens)
   /* Add code here */
 // WRITE YOUR CODE HERE
 
-  if (!in) { // check if original list does not exist/nullptr --> return
+  if (in == NULL) { // check if original list does not exist/nullptr --> return
     return;
-  }
-
-  if (!in->next) {
-    if (!evens || !odds) {
-      return;
-    }
   }
   
   else if (in->value % 2 == 0) {
@@ -43,6 +38,11 @@ void split(Node*& in, Node*& odds, Node*& evens)
     split(in->next, odds->next, evens);
   }
 
+  if (in->next == NULL) {
+    if (evens == NULL || odds == NULL) {
+      return;
+    }
+  }
 }
 
 /* If you needed a helper function, write it here */
