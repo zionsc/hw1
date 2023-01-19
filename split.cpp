@@ -20,7 +20,7 @@ void split(Node*& in, Node*& odds, Node*& evens)
   /* Add code here */
 // WRITE YOUR CODE HERE
 
-  if (in == NULL) { // check if original list does not exist/nullptr --> return
+  if (!in) { // check if original list does not exist/nullptr --> return
     return;
   }
   
@@ -29,7 +29,7 @@ void split(Node*& in, Node*& odds, Node*& evens)
     split(in->next, odds, evens->next);
   }
 
-  else if (in->value < 0) { // negative numbers
+  else if (in->value <= 0) { // negative numbers + 0
     split(in->next, odds, evens);
   }
 
@@ -38,9 +38,15 @@ void split(Node*& in, Node*& odds, Node*& evens)
     split(in->next, odds->next, evens);
   }
 
-  if (in->next == NULL) {
-    if (evens == NULL || odds == NULL) {
+  if (!in->next) {
+    if (!evens || !odds) {
       return;
+    }
+    if (evens->value % 2 != 0) {
+      evens = NULL;
+    }
+    if (odds->value % 2 == 0) {
+      odds = NULL;
     }
   }
 }
