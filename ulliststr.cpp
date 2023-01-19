@@ -11,6 +11,15 @@ ULListStr::ULListStr()
 
 ULListStr::~ULListStr()
 {
+  Item* curr = head_;
+  Item* next = NULL;
+
+  while (curr != NULL) {
+    next = curr->next;
+    delete curr;
+    curr = next;
+  }
+
   clear();
 }
 
