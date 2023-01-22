@@ -30,39 +30,16 @@ void split(Node*& in, Node*& odds, Node*& evens)
     evens = in;
     in = in->next;
     split(in, odds, evens->next);
-    //evens = in;
-    //in = nullptr;
+
   }
 
-  // else if (in->value <= 0) { // negative numbers + 0
-  //   split(in->next, odds, evens);
-  // }
 
   else if (in->value % 2 != 0) {
     odds = in;
     in = in->next;
     split(in, odds->next, evens);
-    //odds = in;
-    //in = nullptr;
   }
 
-  // if (!in->next) {
-  //   if (!evens || !odds) {
-  //     in = nullptr;
-  //   }
-  // }
-
-  // if (!in->next) {
-  //   if (!evens || !odds) {
-  //     return;
-  //   }
-  //   if (evens->value % 2 != 0) {
-  //     evens = nullptr;
-  //   }
-  //   if (odds->value % 2 == 0) {
-  //     odds = nullptr;
-  //   }
-  // }
 }
 
 /* If you needed a helper function, write it here */
