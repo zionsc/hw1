@@ -19,7 +19,7 @@ void split(Node*& in, Node*& odds, Node*& evens)
   /* Add code here */
 // WRITE YOUR CODE HERE
 
-  if (in == NULL) { // check if original list does not exist/nullptr --> return
+  if (in == nullptr) { // check if original list does not exist/nullptr --> return
     evens = nullptr;
     odds = nullptr;
     return;
